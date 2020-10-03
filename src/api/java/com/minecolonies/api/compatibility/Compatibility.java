@@ -17,6 +17,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import static com.minecolonies.api.util.constant.Constants.HARVESTCRAFTMODID;
+import static com.minecolonies.api.util.constant.Constants.AQUACULTUREMODID;
 
 /**
  * This class is to store the methods that call the methods to check for miscellaneous compatibility problems.
@@ -137,6 +138,16 @@ public final class Compatibility
     public static boolean isPamsInstalled()
     {
         return ModList.get().isLoaded(HARVESTCRAFTMODID);
+    }
+
+    /**
+     * Check if Aquaculture 2 is installed.
+     *
+     * @return true if so.
+     */
+    public static boolean isAquacultureInstalled()
+    {
+        return ModList.get().isLoaded(AQUACULTUREMODID);
     }
 
     /**

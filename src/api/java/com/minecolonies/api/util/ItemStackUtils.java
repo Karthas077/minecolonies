@@ -19,7 +19,9 @@ import net.minecraft.nbt.ListNBT;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tileentity.FurnaceTileEntity;
 import net.minecraft.util.math.EntityRayTraceResult;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
+import net.minecraftforge.registries.ForgeRegistries;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -316,6 +318,22 @@ public final class ItemStackUtils
         }
         else if (!toolType.hasVariableMaterials())
         {
+            //Aquaculture Fishing Rods
+            if(ToolType.FISHINGROD.equals(toolType) && Compatibility.isAquacultureInstalled()) {
+                if(stack.getItem().equals(ForgeRegistries.ITEMS.getValue(new ResourceLocation("aquaculture", "iron_fishing_rod")))) {
+                    return 2;
+                }
+                else if(stack.getItem().equals(ForgeRegistries.ITEMS.getValue(new ResourceLocation("aquaculture", "gold_fishing_rod")))) {
+                    return 1;
+                }
+                else if(stack.getItem().equals(ForgeRegistries.ITEMS.getValue(new ResourceLocation("aquaculture", "diamond_fishing_rod")))) {
+                    return 3;
+                }
+                else if(stack.getItem().equals(ForgeRegistries.ITEMS.getValue(new ResourceLocation("aquaculture", "neptunium_fishing_rod")))) {
+                    return 4;
+                }
+            }
+            
             //We need a hut level 1 minimum
             return 1;
         }
